@@ -389,13 +389,15 @@ function Hero() {
               />
               <div className="relative grid h-64 w-64 place-items-center rounded-full glass md:h-80 md:w-80">
                 <div
-                  className="grid h-56 w-56 place-items-center rounded-full md:h-72 md:w-72"
+                  className="grid h-56 w-56 place-items-center rounded-full p-[3px] md:h-72 md:w-72"
                   style={{ background: "var(--gradient-vivid)" }}
                 >
-                  <div className="grid h-[92%] w-[92%] place-items-center rounded-full bg-background">
-                    <span className="font-display text-7xl font-bold text-gradient md:text-8xl">
-                      LN
-                    </span>
+                  <div className="h-full w-full overflow-hidden rounded-full bg-background">
+                    <img
+                      src={profilePhoto}
+                      alt="M. Laxmi Narayana"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
