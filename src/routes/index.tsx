@@ -828,16 +828,26 @@ function SocialTile({ href, icon: Icon, label }: { href: string; icon: typeof Gi
 function ContactForm() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+    setError(null);
+    try {
+      const emailjs = (await import("@emailjs/browser")).default;
+      await emailjs.sendForm("service_77tiw2l", "template_lk23hvx", form, {
+        publicKey: "UbxXqhKauyTPjc2sK",
+      });
       setSent(true);
-      setTimeout(() => setSent(false), 2400);
-      (e.target as HTMLFormElement).reset();
-    }, 1200);
+      form.reset();
+      setTimeout(() => setSent(false), 2800);
+    } catch (err: any) {
+      setError(err?.text || err?.message || "Failed to send. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
