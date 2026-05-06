@@ -11,6 +11,7 @@ import { CursorGlow } from "@/components/CursorGlow";
 import { TypingText } from "@/components/TypingText";
 import { CountUp } from "@/components/CountUp";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import profilePhoto from "@/assets/laxmi-narayana.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
