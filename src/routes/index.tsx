@@ -897,6 +897,7 @@ function ContactForm() {
           </>
         )}
       </button>
+      {error && <p className="mt-3 text-center text-xs text-destructive">{error}</p>}
     </form>
   );
 }
